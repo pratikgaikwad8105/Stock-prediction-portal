@@ -1,5 +1,6 @@
 import { useState } from "react"
 import axios from "axios"
+import { useNavigate } from "react-router-dom"
 
 function Register() {
     const [username, setUsername] = useState('') 
@@ -8,6 +9,7 @@ function Register() {
     const [errors, setErrors] = useState({})
     const [success, setSuccess] = useState(false)
     const [loading, setLoading] = useState(false)
+    const navigate = useNavigate()
 
     const handleRegister = async (e) => {
         e.preventDefault();
@@ -22,6 +24,7 @@ function Register() {
             console.log("registration Successful");
             setErrors({})
             setSuccess(true)
+            navigate("login/")
         }catch(error){
             setErrors(false)
             console.error("registration error :" , error.response.data)
