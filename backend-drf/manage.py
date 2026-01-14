@@ -2,6 +2,8 @@
 """Django's command-line utility for administrative tasks."""
 import os
 import sys
+# Ensure TF legacy Keras flag is not set so tf.keras uses built-in implementation
+os.environ.pop('TF_USE_LEGACY_KERAS', None)
 
 
 def main():

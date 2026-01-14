@@ -8,6 +8,8 @@ https://docs.djangoproject.com/en/5.2/howto/deployment/wsgi/
 """
 
 import os
+# Ensure TF legacy Keras flag is not set before importing TensorFlow in WSGI
+os.environ.pop('TF_USE_LEGACY_KERAS', None)
 
 from django.core.wsgi import get_wsgi_application
 
